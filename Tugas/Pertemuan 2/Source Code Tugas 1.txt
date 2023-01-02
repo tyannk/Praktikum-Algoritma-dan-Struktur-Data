@@ -1,0 +1,45 @@
+#include <iostream>
+#include <math.h>
+#include <conio.h>
+#include <iomanip>
+using namespace std;
+
+float BMI, BB, TB, tb;
+string Siapa;
+
+int main(){
+	ulang1:
+	cout << "Siapa yang ingin anda hitung Body Mass Index-nya?" << endl;
+	cout << "Input sesuai dengan pilihan berikut (saya/ayah/ibu/kakak/adik) : ";
+	cin >> Siapa;
+	
+	while (Siapa != "saya" && Siapa != "ayah" && Siapa != "ibu" && Siapa != "kakak" && Siapa != "adik"){
+		cout << "Anda salah menginput! Silahkan ulangi!" << endl << endl;
+		goto ulang1;
+	}
+	
+	cout << "Input tinggi badan dalam satuan CM : "; 
+	cin >> tb;
+	cout << "Input berat badan dalam satuan KG : "; 
+	cin >> BB;
+	TB = tb/100;
+	BMI = BB/pow(TB,2);
+	
+	cout << "Body Mass Index " << Siapa << " adalah = " << setprecision(4)<< BMI << endl;
+	
+	if (BMI < 17.0){
+		cout << Siapa << " kekurangan berat badan tingkat berat." << endl;
+	} else if (BMI >= 17.0 && BMI <= 18.4){
+		cout << Siapa << " kekurangan berat badan tingkat ringan." << endl;
+	} else if (BMI >= 18.5 && BMI <= 25.0){
+		cout << "Berat badan "<< Siapa <<" normal." << endl;
+	} else if (BMI >= 25.1 && BMI <= 27.0){
+		cout << Siapa << " kelebihan berat badan tingkat ringan." << endl;
+	} else {
+		cout << Siapa << " kelebihan berat badan tingkat berat." << endl;
+	}
+	
+	getchar();
+	cin.get();
+	return 0;
+}
