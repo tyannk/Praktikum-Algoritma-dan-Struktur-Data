@@ -1,0 +1,76 @@
+#include <iostream>
+
+using namespace std;
+int pilihan;
+char repeat;
+double angka1,angka2;
+double perkalian(double angka1, double angka2);
+double pembagian(double angka1, double angka2);
+double penjumlahan(double angka1, double angka2);
+double pengurangan(double angka1, double angka2);
+void kalkulator(double angka1);
+
+int main(){
+awal:
+	cout << "KALKULATOR SEDERHANA\n";
+	cout << "====================\n";
+	cout << "Pilihan: \n";
+	cout << "1.Perkalian \n";
+	cout << "2.Pembagian \n";
+	cout << "3.Penjumlahan \n";
+	cout << "4.Pengurangan \n\n";
+
+	cout << "Inputkan nomor pilihan: ";
+	cin >> pilihan;
+	cout << endl;
+	
+	cout << "Input angka: "; cin >> angka1; 
+	kalkulator(angka1);
+	
+	cout << "Ingin menghitung lagi? (y/n) : ";
+	cin >> repeat; 
+	if (repeat == 'y'){
+		system("cls");
+		goto awal;
+	}else if (repeat == 'n'){
+		goto akhir;
+	}
+akhir:
+	cin.get();
+	return 0;
+}
+
+double perkalian(double angka1, double angka2){
+	return angka1*angka2;
+}
+double pembagian(double angka1, double angka2){
+	return angka1/angka2;
+}
+double penjumlahan(double angka1, double angka2){
+	return angka1+angka2;
+}
+double pengurangan(double angka1, double angka2){
+	return angka1-angka2;
+}
+void kalkulator(double angka1){
+	switch(pilihan){
+		case 1:
+			cout << "dikali dengan: "; cin >> angka2;
+			cout << "Hasil: " << perkalian(angka1,angka2) << endl;
+			break;
+		case 2:
+			cout << "dibagi dengan: "; cin >> angka2;
+			cout << "Hasil: " << pembagian(angka1,angka2) << endl;
+			break;
+		case 3:
+			cout << "dijumlah dengan: "; cin >> angka2;
+			cout << "Hasil: " << penjumlahan(angka1,angka2) << endl;
+			break;
+		case 4:
+			cout << "dikurang dengan: "; cin >> angka2;
+			cout << "Hasil: " << pengurangan(angka1,angka2) << endl;
+			break;
+		default: 
+			cout << "Pilihan yang anda pilih tidak ada" << endl;
+	}
+}
